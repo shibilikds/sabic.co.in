@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABIC | Students' Association of Bukhari Da’wa College</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Config & Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        sabic: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#3b82f6', // Bright Blue
+                            600: '#2563eb', // Standard Blue
+                            700: '#1d4ed8', // Darker Blue
+                            800: '#1e40af', // Navy Blue
+                            900: '#1e3a8a', // Deep Navy
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Utilities */
+        
+        /* Dark Glass Navbar */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8); /* Slate-900 with opacity */
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Dark Gradient Background with Pattern */
+        .bg-dark-pattern {
+            background-color: #0f172a; /* Slate-900 */
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+                radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px;
+            background-attachment: fixed;
+        }
+
+        /* Glass Card Effect */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4); /* Slate-800 transparent */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-300 bg-dark-pattern antialiased selection:bg-sabic-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="bg-blue-600 text-white w-10 h-10 flex items-center justify-center rounded-lg font-bold text-xl group-hover:bg-blue-500 transition shadow-lg shadow-blue-900/50">S</div>
+                    <span class="text-2xl font-extrabold text-white tracking-tight">SABIC</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8 items-center font-medium text-slate-300">
+                    <a href="#home" class="hover:text-white transition">Home</a>
+                    <a href="#about" class="hover:text-white transition">About</a>
+                    <a href="#services" class="hover:text-white transition">Services</a>
+                    <a href="#departments" class="hover:text-white transition">Departments</a>
+                    <a href="#contact" class="bg-white/10 text-white px-5 py-2.5 rounded-full hover:bg-white/20 transition border border-white/10 backdrop-blur-sm">Contact Us</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full shadow-xl">
+            <div class="flex flex-col p-6 space-y-4 font-medium text-slate-300">
+                <a href="#home" class="hover:text-white block" onclick="toggleMenu()">Home</a>
+                <a href="#about" class="hover:text-white block" onclick="toggleMenu()">About</a>
+                <a href="#services" class="hover:text-white block" onclick="toggleMenu()">Services</a>
+                <a href="#departments" class="hover:text-white block" onclick="toggleMenu()">Departments</a>
+                <a href="#contact" class="text-blue-400 font-bold block" onclick="toggleMenu()">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <!-- Decoration Orbs -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-20 left-0 w-72 h-72 bg-purple-600/20 rounded-full blur-3xl -z-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            
+            <!-- FEATURED EVENT HIGHLIGHT TAG - CHANGED TO EMERALD GREEN -->
+            <span class="inline-block py-2 px-4 rounded-full bg-emerald-600/20 text-emerald-300 text-sm font-semibold mb-6 border border-emerald-600/50 backdrop-blur-md animate-pulse">
+                <i class="fas fa-star mr-2"></i> ONGOING: The Annual Art Festival 2024!
+            </span>
+            <!-- END FEATURED EVENT HIGHLIGHT TAG -->
+
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight drop-shadow-lg">
+                SABIC
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 font-light mb-4">
+                Students’ Association of Bukhari Da’wa College
+            </p>
+            <p class="max-w-2xl mx-auto text-slate-400 mb-10 text-base md:text-lg">
+                Empowering students through academic support, social service, and character building.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- PRIMARY CTA BUTTON (Art Fest Link) - CHANGED TO EMERALD GREEN -->
+                <a href="#events" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full font-bold transition shadow-lg shadow-emerald-900/50 hover:shadow-emerald-600/40 transform hover:scale-105">
+                    View Art Fest Details
+                </a>
+                <!-- SECONDARY CTA BUTTON (General Activities Link) -->
+                <a href="#join" class="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-full font-semibold transition backdrop-blur-md">
+                    Join SABIC Activities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Mission Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="hidden md:block md:w-1/2">
+                    <div class="relative group">
+                        <!-- Image with glass border -->
+                        <div class="p-2 glass-card rounded-2xl">
+                            <img src="bukhari-sabic-2.jpg" alt="Students Gathering" class="rounded-xl shadow-2xl relative z-10 opacity-90 group-hover:opacity-100 transition">
+                        </div>
+                        <!-- Glow effect behind -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 -z-10"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 relative inline-block">
+                        About SABIC
+                        <span class="absolute bottom-0 left-0 w-1/3 h-1 bg-blue-500 rounded-full box-shadow-glow"></span>
+                    </h2>
+                    <p class="text-lg text-slate-400 mb-6 leading-relaxed">
+                        SABIC is the official student-governing body of Bukhari Da’wa College. We stand as the voice of the students, dedicated to promoting their welfare, fostering academic excellence, and engaging in impactful social service.
+                    </p>
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                        Our mission extends beyond the classroom. Through cultural activities, literary forums, and community outreach, we aim to build character and nurture future leaders who contribute positively to society.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <span class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-xs"><i class="fas fa-check"></i></span> Student Welfare & Representation
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <span class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-xs"><i class="fas fa-check"></i></span> Academic & Spiritual Growth
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <span class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 text-xs"><i class="fas fa-check"></i></span> Social Service & Outreach
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Section (Glass Cards) -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Core Programs & Services</h2>
+                <p class="text-slate-400">Diverse initiatives designed to foster knowledge, creativity, and community service.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="glass-card p-8 rounded-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition duration-300 border border-blue-500/20">
+                        <i class="fas fa-quran text-blue-400 text-2xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Religious Studies</h3>
+                    <p class="text-slate-400">Comparative religious studies, Nahv, Fiqh, and Aqeeda workshops to deepen understanding.</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="glass-card p-8 rounded-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600 transition duration-300 border border-purple-500/20">
+                        <i class="fas fa-language text-purple-400 text-2xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Language Clubs</h3>
+                    <p class="text-slate-400">Dedicated circles for English and Arabic language mastery, debating, and public speaking.</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="glass-card p-8 rounded-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-teal-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-teal-600 transition duration-300 border border-teal-500/20">
+                        <i class="fas fa-hands-helping text-teal-400 text-2xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Da'wa & Outreach</h3>
+                    <p class="text-slate-400">Active social work, community engagement, and da'wa missions to spread positivity.</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="glass-card p-8 rounded-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-pink-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-pink-600 transition duration-300 border border-pink-500/20">
+                        <i class="fas fa-book-reader text-pink-400 text-2xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Literary Activities</h3>
+                    <p class="text-slate-400">Writers' Forum and Speakers' Forum to nurture creativity and monthly magazines.</p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="glass-card p-8 rounded-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-orange-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-600 transition duration-300 border border-orange-500/20">
+                        <i class="fas fa-user-graduate text-orange-400 text-2xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Edu Help Desk</h3>
+                    <p class="text-slate-400">Comprehensive student support system for academic guidance and assistance.</p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="glass-card p-8 rounded-2xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-red-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 transition duration-300 border border-red-500/20">
+                        <i class="fas fa-heartbeat text-red-400 text-2xl group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Medical Welfare</h3>
+                    <p class="text-slate-400">Medical care programs and general welfare initiatives for students and the needy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments / Wings Section -->
+    <section id="departments" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Structure & Wings</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dept 1 -->
+                <div class="glass-card border-l-4 !border-l-blue-500 pl-6 py-4 rounded-r-lg hover:bg-white/5 transition">
+                    <h3 class="text-xl font-bold text-white">Islamic Studies Dept</h3>
+                    <p class="text-sm text-slate-400 mt-2">Focusing on deep theological understanding and research.</p>
+                </div>
+                <!-- Dept 2 -->
+                <div class="glass-card border-l-4 !border-l-yellow-500 pl-6 py-4 rounded-r-lg hover:bg-white/5 transition">
+                    <h3 class="text-xl font-bold text-white">Da’wa & Training</h3>
+                    <p class="text-sm text-slate-400 mt-2">Training students in propagation and public speaking.</p>
+                </div>
+                <!-- Dept 3 -->
+                <div class="glass-card border-l-4 !border-l-cyan-500 pl-6 py-4 rounded-r-lg hover:bg-white/5 transition">
+                    <h3 class="text-xl font-bold text-white">Publications Dept</h3>
+                    <p class="text-sm text-slate-400 mt-2">Managing magazines, newsletters, and literary works.</p>
+                </div>
+                <!-- Dept 4 -->
+                <div class="glass-card border-l-4 !border-l-red-500 pl-6 py-4 rounded-r-lg hover:bg-white/5 transition">
+                    <h3 class="text-xl font-bold text-white">Social Welfare Wing</h3>
+                    <p class="text-sm text-slate-400 mt-2">Community service and humanitarian aid coordination.</p>
+                </div>
+                <!-- Dept 5 -->
+                <div class="glass-card border-l-4 !border-l-purple-500 pl-6 py-4 rounded-r-lg hover:bg-white/5 transition">
+                    <h3 class="text-xl font-bold text-white">Youth Wing</h3>
+                    <p class="text-sm text-slate-400 mt-2">Energizing the student body through active campaigns.</p>
+                </div>
+                <!-- Dept 6 -->
+                <div class="glass-card border-l-4 !border-l-pink-500 pl-6 py-4 rounded-r-lg hover:bg-white/5 transition">
+                    <h3 class="text-xl font-bold text-white">Student Support</h3>
+                    <p class="text-sm text-slate-400 mt-2">Ensuring academic and personal well-being.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Banner Section -->
+    <div class="glass-card py-16 text-white border-y border-white/10">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <div class="text-4xl font-extrabold mb-2 text-blue-400">10+</div>
+                <div class="text-slate-400 text-sm uppercase tracking-wider">Years of Service</div>
+            </div>
+            <div>
+                <div class="text-4xl font-extrabold mb-2 text-blue-400">500+</div>
+                <div class="text-slate-400 text-sm uppercase tracking-wider">Active Members</div>
+            </div>
+            <div>
+                <div class="text-4xl font-extrabold mb-2 text-blue-400">50+</div>
+                <div class="text-slate-400 text-sm uppercase tracking-wider">Events Annually</div>
+            </div>
+            <div>
+                <div class="text-4xl font-extrabold mb-2 text-blue-400">100%</div>
+                <div class="text-slate-400 text-sm uppercase tracking-wider">Dedication</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Publications & Events Grid -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                
+                <!-- Publications -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-8">Publications</h2>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card p-4 rounded-xl text-center group cursor-pointer hover:bg-white/10">
+                            <div class="h-48 bg-slate-800/50 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative border border-white/5">
+                                <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition duration-300"></div>
+                                <span class="text-slate-500 font-bold group-hover:text-blue-400 transition">MAGAZINE COVER</span>
+                            </div>
+                            <h4 class="font-bold text-white">The Voice Monthly</h4>
+                            <p class="text-xs text-slate-400">Vol 12, Issue 4</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center group cursor-pointer hover:bg-white/10">
+                            <div class="h-48 bg-slate-800/50 rounded-lg mb-4 flex items-center justify-center overflow-hidden relative border border-white/5">
+                                <div class="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition duration-300"></div>
+                                <span class="text-slate-500 font-bold group-hover:text-blue-400 transition">NEWSLETTER</span>
+                            </div>
+                            <h4 class="font-bold text-white">SABIC Bulletin</h4>
+                            <p class="text-xs text-slate-400">Weekly Updates</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Timeline -->
+                <div id="events">
+                    <h2 class="text-3xl font-bold text-white mb-8">Upcoming Events</h2>
+                    <div class="space-y-6">
+                        <!-- Event 1: Art Festival (Highlighted) - CHANGED TO EMERALD GREEN -->
+                        <div class="flex gap-4 group bg-emerald-800/10 p-4 rounded-xl border border-emerald-600/30">
+                            <div class="flex-shrink-0 w-16 text-center bg-white/5 rounded-lg py-2 h-fit border border-emerald-600/50">
+                                <span class="block text-sm font-bold text-slate-200 uppercase">Nov</span>
+                                <span class="block text-2xl font-extrabold text-emerald-400">20</span>
+                            </div>
+                            <div class="w-full">
+                                <h4 class="text-xl font-extrabold text-white group-hover:text-emerald-300 transition leading-tight">THE GRAND ART FESTIVAL 2024</h4>
+                                <p class="text-sm text-emerald-200 mb-2">Happening Now - Main Auditorium</p>
+                                <span class="text-xs bg-emerald-600 text-white px-2 py-1 rounded-full border border-emerald-500/20 shadow-md">FEATURED CULTURAL EVENT</span>
+                            </div>
+                        </div>
+                        <!-- Event 2 -->
+                        <div class="flex gap-4 group">
+                            <div class="flex-shrink-0 w-16 text-center bg-white/5 rounded-lg py-2 h-fit border border-white/5">
+                                <span class="block text-sm font-bold text-slate-400 uppercase">Oct</span>
+                                <span class="block text-2xl font-extrabold text-green-400">22</span>
+                            </div>
+                            <div class="pb-6 border-b border-white/5 w-full">
+                                <h4 class="text-lg font-bold text-white group-hover:text-green-400 transition">Fiqh Workshop: Modern Contexts</h4>
+                                <p class="text-sm text-slate-400 mb-2">02:00 PM - Seminar Hall</p>
+                                <span class="text-xs bg-green-500/20 text-green-300 px-2 py-1 rounded border border-green-500/20">Academic</span>
+                            </div>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="flex gap-4 group">
+                            <div class="flex-shrink-0 w-16 text-center bg-white/5 rounded-lg py-2 h-fit border border-white/5">
+                                <span class="block text-sm font-bold text-slate-400 uppercase">Nov</span>
+                                <span class="block text-2xl font-extrabold text-red-400">05</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white group-hover:text-red-400 transition">Community Medical Camp</h4>
+                                <p class="text-sm text-slate-400 mb-2">09:00 AM - Campus Grounds</p>
+                                <span class="text-xs bg-red-500/20 text-red-300 px-2 py-1 rounded border border-red-500/20">Social Service</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Placeholder -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square glass-card rounded-lg overflow-hidden relative group p-1">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery" class="w-full h-full object-cover rounded-md transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="aspect-square glass-card rounded-lg overflow-hidden relative group p-1">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery" class="w-full h-full object-cover rounded-md transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="aspect-square glass-card rounded-lg overflow-hidden relative group p-1">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit-crop&w=600&q=80" alt="Gallery" class="w-full h-full object-cover rounded-md transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                </div>
+                <div class="aspect-square glass-card rounded-lg overflow-hidden relative group p-1">
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit-crop&w=600&q=80" alt="Gallery" class="w-full h-full object-cover rounded-md transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="join" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-blue-900/40 backdrop-blur-sm z-0"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Be Part of the Change</h2>
+            <p class="text-blue-100 max-w-2xl mx-auto mb-8 text-lg">
+                Join SABIC as a volunteer or member. Contribute your skills to build a better community and enhance your own leadership potential.
+            </p>
+            <button class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition transform hover:-translate-y-1">
+                Register as Volunteer
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto glass-card rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                
+                <!-- Info Side -->
+                <div class="md:w-5/12 bg-slate-900/60 p-10 flex flex-col justify-between border-r border-white/5">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2 text-white">Get in Touch</h3>
+                        <p class="text-slate-400 mb-8">Have questions or want to collaborate? Reach out to us.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center flex-shrink-0 text-blue-400">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase tracking-wide text-slate-500">Address</h5>
+                                    <p class="leading-relaxed text-slate-300">Bukhari Da’wa College,<br>Kondotty, Malappuram,<br>Kerala, India</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center flex-shrink-0 text-blue-400">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase tracking-wide text-slate-500">Phone</h5>
+                                    <p class="text-slate-300">+91-483-2713306</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-blue-600/20 flex items-center justify-center flex-shrink-0 text-blue-400">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-sm uppercase tracking-wide text-slate-500">Email</h5>
+                                    <p class="text-slate-300">info@bukhari.co.in</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600 transition text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Form Side -->
+                <div class="md:w-7/12 p-10 bg-white/5 backdrop-blur-md">
+                    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">First Name</label>
+                                <input type="text" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-white placeholder-slate-500" placeholder="John">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-300 mb-2">Last Name</label>
+                                <input type="text" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-white placeholder-slate-500" placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Email Address</label>
+                            <input type="email" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-white placeholder-slate-500" placeholder="john@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-slate-300 mb-2">Message</label>
+                            <textarea rows="4" class="w-full bg-slate-800/50 border border-slate-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition text-white placeholder-slate-500" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-500 transition shadow-lg shadow-blue-900/50">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/80 border-t border-white/5 text-slate-400 py-12 backdrop-blur-lg">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-2xl font-extrabold text-white tracking-tight">SABIC</span>
+                    <p class="mt-4 text-sm text-slate-500">
+                        Students’ Association of Bukhari Da’wa College. Empowering the next generation through education and service.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-blue-400 transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-blue-400 transition">Our Services</a></li>
+                        <li><a href="#events" class="hover:text-blue-400 transition">Events</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Departments</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition">Islamic Studies</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Da'wa Wing</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Publications</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Social Welfare</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> SABIC. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <p class="text-slate-500">Designed with purpose.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
